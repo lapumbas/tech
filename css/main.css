@@ -1,0 +1,64 @@
+@font-face {
+  font-family: "PTSans";
+  src: url("../fonts/web/ptsans.woff2");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "PTSans";
+  src: url("../fonts/web/ptsansbold.woff2");
+  font-weight: bold;
+}
+
+body {
+  font-family: "PTSans", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.86;
+  color: rgb(51, 51, 51);
+  margin: 0;
+  padding: 0;
+}
+
+.visually-hidden:not(:focus):not(:active),
+input[type="checkbox"].visually-hidden,
+input[type="radio"].visually-hidden {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+*,
+* before,
+* after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+.content-box-component {
+  box-sizing: content-box;
+}
+
+.container {
+  width: 960px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
