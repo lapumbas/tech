@@ -53,8 +53,12 @@ a {
 }
 
 @keyframes button_bg {
-  from {background-color: #ff5357;}
-  to {background-color: #dc1c29;}
+  from {
+    background-color: #ff5357;
+  }
+  to {
+    background-color: #dc1c29;
+  }
 }
 
 .button {
@@ -424,11 +428,27 @@ a {
 }
 
 .slide_1 {
+  display: none;
   background: url("../img/slider-1.jpg");
 }
 
 .slide_2 {
+  display: none;
   background: url("../img/slider-2.jpg");
+}
+
+.main_slide_show {
+  animation: slider_opacity 0.5s;
+  display: flex;
+}
+
+@keyframes slider_opacity {
+  0% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .slider_button {
@@ -461,6 +481,10 @@ a {
 
 .next_arrow {
   background: transparent url("../img/svg-technomart/icon-right.svg") no-repeat 0 0;
+}
+
+.arrow_disabled {
+  opacity: 0.2;
 }
 
 .popular_goods {
@@ -533,6 +557,7 @@ a {
 }
 
 .old_price {
+  text-align: center;
   margin: 0;
   padding: 0;
   color: #a9a9a9;
@@ -694,6 +719,12 @@ a {
   cursor: pointer;
 }
 
+.services_menu button:hover,
+.services_menu button:focus {
+  background-color: #293449;
+  outline: none;
+}
+
 .services_menu button.active {
   background-color: #ffffff;
   color: #3d546e;
@@ -727,19 +758,36 @@ a {
   margin-top: 20px;
 }
 
+@keyframes slide_scale {
+  0% {
+    transform: scale(0.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 .services_slide_1 {
+  display: none;
   min-height: 285px;
   background: url("../img/delivery.png") no-repeat right bottom;
 }
 
 .services_slide_2 {
+  display: none;
   min-height: 285px;
   background: url("../img/guarantee.png") no-repeat right bottom;
 }
 
 .services_slide_3 {
+  display: none;
   min-height: 285px;
   background: url("../img/credit.png") no-repeat right bottom;
+}
+
+.slide_show {
+  display: block;
+  animation: slide_scale 0.3s;
 }
 
 .credit_button {
@@ -797,6 +845,7 @@ a {
 
 .contacts img {
   margin-top: 25px;
+  cursor: pointer;
 }
 
 .transport_companies {
@@ -840,6 +889,10 @@ a {
 .main_footer {
   margin-top: 85px;
   background-color: #3d546e;
+}
+
+.inner_main_footer {
+  margin-top: 0;
 }
 
 .company {
@@ -1037,6 +1090,7 @@ a {
 }
 
 .modal_write_us {
+  z-index: 2;
   border-top: 7px solid #ee3643;
   padding-left: 80px;
   padding-right: 80px;
@@ -1098,6 +1152,7 @@ a {
 }
 
 .close_modal {
+  cursor: pointer;
   border: none;
   width: 21px;
   height: 21px;
@@ -1113,4 +1168,466 @@ a {
   margin-left: -471px;
   background: url("../img/map-popup.jpg") no-repeat 0 0;
   background-size: cover;
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+
+.modal_overlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translateX(-10px);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translateX(10px);
+  }
+}
+
+.modal_error {
+  animation: shake 0.7s;
+}
+
+/* catalog */
+
+.about_perforators {
+  margin-top: 60px;
+  background: #f2f6f8;
+  padding-top: 60px;
+}
+
+.about_perforators h2 {
+  margin: 0;
+  padding: 0;
+  font-family: Cuprum;
+  font-size: 30px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.about_perforators p {
+  margin: 0;
+  padding: 0;
+  color: #000000;
+  font-family: "PT Sans";
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 24px;
+  padding-top: 30px;
+  padding-bottom: 70px;
+}
+
+/* breadcrumbs */
+
+.breadcrumbs_list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumbs_list a {
+  display: flex;
+  align-items: center;
+  min-height: 60px;
+  margin-right: 40px;
+  user-select: none;
+  position: relative;
+}
+
+.breadcrumbs_list a::after {
+  position: absolute;
+  content: "";
+  width: 8px;
+  height: 12px;
+  right: -25px;
+  top: 24px;
+  background: url("../img/svg-technomart/icon-right-small.svg") no-repeat 0 0;
+}
+
+.breadcrumbs_list .current::after {
+  content: none;
+}
+
+.container>h1 {
+  display: flex;
+  align-items: center;
+  min-height: 89px;
+  background-color: #f2f6f8;
+  padding: 0;
+  margin: 0;
+  color: #32425c;
+  font-family: Cuprum;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 30px;
+  text-transform: uppercase;
+  padding-left: 30px;
+}
+
+/* filters */
+
+.section_header {
+  min-height: 38px;
+  background-color: #f7f3ec;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.section_header h2 {
+  margin: 0;
+  padding: 0;
+  color: #000000;
+  font-family: "PT Sans";
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 18px;
+  padding-left: 20px;
+}
+
+.section_header>a {
+  margin-left: 65px;
+}
+
+.section_header>a:nth-child(2) {
+  margin-left: 140px;
+}
+
+.catalog_arrows {
+  display: flex;
+  margin-left: auto;
+  justify-content: flex-end;
+  width: 43px;
+}
+
+.catalog_arrows a {
+  display: flex;
+  width: 20px;
+  height: 20px;
+}
+
+.catalog_wrapper {
+  margin-top: 20px;
+  display: flex;
+}
+
+.filters {
+  width: 220px;
+  margin-right: 20px;
+}
+
+.filter_form {
+  margin: 0;
+  padding: 0;
+}
+
+.filter_form fieldset {
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-bottom: 1px solid #e5e5e5;
+  margin-bottom: 20px;
+}
+
+.filter_form fieldset:last-child {
+  border: none;
+}
+
+.filter_form legend {
+  padding: 0;
+  margin: 0;
+  color: #000000;
+  font-family: "PT Sans";
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 30px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.price_range {
+  min-height: 80px;
+  background-color: #f7f3ec;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scale {
+  width: 180px;
+  height: 2px;
+  background-color: #d7dcde;
+}
+
+.range {
+  width: 152px;
+  height: 2px;
+  background: #00ca74;
+  position: relative;
+}
+
+.price_knob {
+  cursor: pointer;
+  position: absolute;
+  width: 20px;
+  height: 22px;
+  top: -9px;
+  background: url("../img/svg-technomart/filter-button.svg") no-repeat 0 0;
+}
+
+.min_price {
+  left: 0px;
+}
+
+.max_price {
+  right: 0px;
+}
+
+.text_price_inputs {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  padding-bottom: 25px;
+}
+
+.text_price_inputs::before {
+  padding: 0;
+  margin: 0;
+  content: "—";
+  width: 10px;
+  height: 1px;
+  color: #444444;
+  font-family: "PT Sans";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 18px;
+  text-transform: uppercase;
+  position: absolute;
+  left: 50%;
+  margin-left: -7px;
+  bottom: 52px;
+}
+
+.text_price_inputs input {
+  width: 95px;
+  min-height: 38px;
+  background-color: #f7f3ec;
+  border: none;
+  text-align: center;
+  color: #000000;
+  font-family: "PT Sans";
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 18px;
+  text-transform: uppercase;
+  position: relative;
+}
+
+.producers_list,
+.power_list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.producers_item,
+.power_item {
+  margin-bottom: 25px;
+}
+
+.producers_item label,
+.power_item label {
+  color: #000000;
+  font-family: "PT Sans";
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 20px;
+  text-transform: uppercase;
+  padding-left: 35px;
+  position: relative;
+  cursor: pointer;
+}
+
+.producers_item input~label::before {
+  position: absolute;
+  content: "";
+  width: 27px;
+  height: 23px;
+  background: url("../img/svg-technomart/checkbox-off.svg") no-repeat 0 0;
+  left: 0;
+  top: -4px;
+}
+
+.producers_item input:checked~label::before {
+  background: url("../img/svg-technomart/checkbox-on.svg") no-repeat 0 0;
+  left: 0;
+  top: -4px;
+}
+
+.power_item input~label::before {
+  position: absolute;
+  content: "";
+  width: 25px;
+  height: 25px;
+  background: url("../img/svg-technomart/radio-off.svg") no-repeat 0 0;
+  left: 0;
+  top: -4px;
+}
+
+.power_item input:checked~label::before {
+  background: url("../img/svg-technomart/radio-on.svg") no-repeat 0 0;
+  left: 0;
+  top: -4px;
+}
+
+.filter_form_button {
+  width: 140px;
+  min-height: 38px;
+  border: 1px solid #e5e5e5;
+  color: #000000;
+  font-family: "PT Sans";
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 18px;
+  cursor: pointer;
+}
+
+.catalog {
+  width: 700px;
+  margin-left: auto;
+}
+
+.product_cards {
+  margin-left: -20px;
+}
+
+.product_cards ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.product_cards li {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  padding: 0 30px 20px 30px;
+  width: 220px;
+  height: 318px;
+  border: 1px solid #e5e5e5;
+  background-color: #ffffff;
+  position: relative;
+}
+
+.product_card_hover {
+  background: white;
+  display: none;
+  position: absolute;
+  width: 220px;
+  height: 160px;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 44px;
+}
+
+.product_card_hover a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 135px;
+  min-height: 38px;
+  box-shadow: inset 0 -3px 0 #367315;
+  background-color: #63a63e;
+  color: #ffffff;
+  font-family: Cuprum;
+  font-size: 14px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.product_card_hover a:hover,
+.product_card_hover a:focus {
+  background-color: #5fbb2d;
+}
+
+.product_card_hover a:active {
+  box-shadow: none;
+  background-color: #518534;
+}
+
+.product_card_hover button {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 7px;
+  width: 135px;
+  height: 38px;
+  border: 3px solid #63a63e;
+  color: #32425c;
+  font-family: Cuprum;
+  font-size: 14px;
+  font-weight: 400;
+  text-transform: uppercase;
+  outline: none;
+}
+
+.product_card_hover button:hover,
+.product_card_hover button:focus {
+  border: 3px solid #32425c;
+}
+
+.product_card_hover button:active {
+  border: 3px solid #32425c;
+  opacity: 0.3;
+}
+
+.product_cards li:hover,
+.product_cards li:focus {
+  box-shadow: 0 10px 25px rgba(41, 52, 73, 0.5);
+}
+
+.product_cards li:hover>.product_card_hover,
+.product_cards li:focus>.product_card_hover {
+  display: flex;
+}
+
+.product_cards img {
+  width: 220px;
+  height: 160px;
+}
+
+.product_cards h3 {
+  text-align: center;
+  color: #000000;
+  font-family: "PT Sans";
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 20px;
 }
